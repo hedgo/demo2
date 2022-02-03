@@ -1,14 +1,14 @@
-package com.example.demo2.domain;
+package com.example.demo2.streams;
 
-import com.example.demo2.domain.model.Customer;
-import com.example.demo2.domain.model.Employee;
+import com.example.demo2.streams.model.Customer;
+import com.example.demo2.streams.model.Employee;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
 //Moje testy
-public class Test3 {
+public class Stream3 {
 
     public static void main(String[] args) {
         test1();
