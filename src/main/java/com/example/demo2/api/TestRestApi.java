@@ -13,7 +13,7 @@ public class TestRestApi {
     @ResponseBody
     public TestResponse test() {
         System.out.println("Rest called!");
-        return TestResponse.builder().name("Andrzej, new commit man:)").age(40).role("IT guy").build();
+        return TestResponse.builder().name("Andrzej, new commit man 2:)").age(40).role("IT guy").build();
     }
 
     @GetMapping("/api/test2")
