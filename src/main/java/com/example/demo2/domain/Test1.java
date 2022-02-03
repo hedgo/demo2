@@ -1,15 +1,16 @@
 package com.example.demo2.domain;
 
-import java.util.List;
+import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 //https://geek.justjoin.it/zastosowanie-stream-api-z-java-8-przyklady?gclid=CjwKCAiAl-6PBhBCEiwAc2GOVNwxmcUKv0vAlbWSGeu5_vIxmEK6zqFMLNsTXJul1_p5YGQfTRd1MBoC5KIQAvD_BwE
 public class Test1 {
 
     public static void main(String[] args) {
-        test2();
+        test3();
     }
 
     static void test1() {//find name that starts with given letter
@@ -37,7 +38,11 @@ public class Test1 {
     }
 
     static void test3() {
-
-
+        IntStream numbers = IntStream.of(2, 5, 10, 2, 4, 15, 5, 7, 3, 6);
+//        numbers.boxed().collect(Collectors.joining());
+        //.forEach(System.out::println);
+        numbers.boxed().sorted(Collections.reverseOrder()).forEach(System.out::println);
+//        IntStream.rangeClosed(1, 6).boxed().collect(Collectors.toList());
+//                .forEach(System.out::println);
     }
 }
