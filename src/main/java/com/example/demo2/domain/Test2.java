@@ -16,7 +16,7 @@ public class Test2 {
 
     static void test1() {//posortuj odwrotnie listę integerów
         int[] numbers = {2, 6, 1, 8, 10, 2, 5, 3, 8};
-        List<Integer> numbersList = new ArrayList<>() {{ //same as Arrays.asList()
+            List<Integer> numbersList = new ArrayList<>() {{ //same as Arrays.asList()
             add(2);
             add(5);
             add(10);
