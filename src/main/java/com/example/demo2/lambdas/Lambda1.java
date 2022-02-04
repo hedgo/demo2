@@ -6,18 +6,23 @@ interface Compute {
 }
 
 public class Lambda1 {
-    public static void main(String[] args) {
-//        Compute compute = (a, b) -> a - b;
-//        int substract = compute.mathOperation(10, 5);
-//        System.out.println("substract = " + substract);
 
+    public static void main(String[] args) {
         showComputeResults((a, b) -> a - b);
         showComputeResults((a, b) -> a + b);
         showComputeResults((a, b) -> a * b);
         showComputeResults((a, b) -> a / b);
+        showComputeResults(new Compute() {
+            @Override
+            public int mathOperation(int a, int b) {
+                return a * a + b * b;
+            }
+        });
+        Compute compute = (a, b) -> 1000+ a - b;
+        showComputeResults(compute);
     }
 
-    public static void showComputeResults(Compute compute){
+    public static void showComputeResults(Compute compute) {
         int i = compute.mathOperation(10, 5);
         System.out.println("i = " + i);
     }

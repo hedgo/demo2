@@ -1,6 +1,7 @@
 package com.example.demo2.streams;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -9,6 +10,7 @@ public class Stream2 {
 
     public static void main(String[] args) {
         test1();
+        test2();
     }
 
     static void test1() {//posortuj odwrotnie listę integerów
@@ -28,15 +30,13 @@ public class Stream2 {
         List<Integer> numberList2 = Arrays.asList(2, 3, 4, 10, 4, 1);
 
         //4
-        Stream<Integer> numbersStream = Stream.of(2, 4, 5, 6, 7, 8, 10, 2, 1, 4);
-
-        //todo: posotruj odwrotnie!!
-        String sortedNumbers = Arrays.stream(numbers)
-                .boxed()
+        Stream<Integer> input = Stream.of(2, 4, 5, 6, 7, 8, 10, 2, 1, 4);
+        String output = input
                 .sorted(Collections.reverseOrder())
                 .map(Objects::toString)
                 .collect(Collectors.joining(", "));
-        System.out.println("sortedNumbers = " + sortedNumbers);
+
+        System.out.println("sortedNumbers = " + output);
 //        numbersList.stream().forEach(System.out::print);
 //        numberList2.stream().forEach(System.out::print);
 //        numbersStream.forEach(System.out::print);
@@ -44,16 +44,24 @@ public class Stream2 {
     }
 
     static void test2() {//letters count
-        String input = "aaabbbcccdbb";
-
-        Stream<Character> characterStream = input.chars().mapToObj(value -> (char) value);
-        Map<Character, Long> resultMap = characterStream.collect(Collectors.groupingBy(character -> character, Collectors.counting()));
-        resultMap.forEach((oneChar, countOfChar) -> System.out.print(oneChar.toString() + countOfChar));
+//        Stream<Character> characterStream = input.chars().mapToObj(value -> (char) value);
+//        Map<Character, Long> resultMap = characterStream.collect(Collectors.groupingBy(character -> character, Collectors.counting()));
+//        resultMap.forEach((oneChar, countOfChar) -> System.out.print(oneChar.toString() + countOfChar));
 
         //here in on command:)
-        input.chars().mapToObj(value -> (char) value)
-                .collect(Collectors.groupingBy(character -> character, Collectors.counting()))
-                .forEach((oneChar, countOfChar) -> System.out.print(oneChar.toString() + countOfChar));
+//        input.chars().mapToObj(value -> (char) value)
+//                .collect(Collectors.groupingBy(character -> character, Collectors.counting()))
+//                .forEach((oneChar, countOfChar) -> System.out.print(oneChar.toString() + countOfChar));
+
+        String input = "aaabbbcccdbb";
+        String output = input.chars().mapToObj(value -> (char) value)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .map(characterLongEntry -> String.format("%s%s",characterLongEntry.getKey(),characterLongEntry.getValue()))
+                .collect(Collectors.joining());
+
+        System.out.println("collect = " + output);
+
         //output: a3b5c3d1
     }
 
