@@ -1,7 +1,7 @@
-package com.example.demo2.streams;
+package com.example.demo2.domain.streams;
 
-import com.example.demo2.streams.model.Customer;
-import com.example.demo2.streams.model.Employee;
+import com.example.demo2.domain.model.Customer;
+import com.example.demo2.domain.model.Employee;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -22,7 +22,7 @@ public class Stream3 {
         );
         employeeList.stream()
                 .filter(employee -> employee.getAge() < 35)
-                .map(employee -> Customer.of(employee.getName(), employee.getRole()))
+                .map(employee -> Customer.of(employee.getName(), employee.getAge()))
                 .findFirst().ifPresent(System.out::println);
 //                .anyMatch(customer -> customer.getName().startsWith("R"));
 //                .forEach(System.out::println);

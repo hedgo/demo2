@@ -1,4 +1,4 @@
-package com.example.demo2.streams.model;
+package com.example.demo2.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,5 +11,5 @@ import lombok.ToString;
 @ToString
 public class Customer {
     private String name;
-    private String segment;
+    private Integer age;
 }

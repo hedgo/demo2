@@ -1,4 +1,4 @@
-package com.example.demo2.streams.model;
+package com.example.demo2.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

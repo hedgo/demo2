@@ -1,4 +1,4 @@
-package com.example.demo2.streams;
+package com.example.demo2.domain.streams;
 
 import java.util.Collections;
 import java.util.stream.IntStream;

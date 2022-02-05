@@ -1,11 +1,11 @@
-package com.example.demo2.streams;
+package com.example.demo2.domain.streams;
 
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-//Zadania z coding PS
+//PS
 public class Stream2 {
 
     public static void main(String[] args) {
