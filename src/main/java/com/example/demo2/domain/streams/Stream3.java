@@ -5,6 +5,7 @@ import com.example.demo2.domain.model.Employee;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 //Moje testy
@@ -21,10 +22,12 @@ public class Stream3 {
                 Employee.of("MAry", 34, BigDecimal.valueOf(800), "Scrum Master")
         );
         employeeList.stream()
-                .filter(employee -> employee.getAge() < 35)
+                .filter(employee -> employee.getAge() > 5)
                 .map(employee -> Customer.of(employee.getName(), employee.getAge()))
-                .findFirst().ifPresent(System.out::println);
+                .sorted(Comparator.comparing(Customer::getAge).reversed().thenComparing(Customer::getName))
+//                .findFirst().ifPresent(System.out::println);
 //                .anyMatch(customer -> customer.getName().startsWith("R"));
-//                .forEach(System.out::println);
+                .forEach(System.out::println);
+
     }
 }

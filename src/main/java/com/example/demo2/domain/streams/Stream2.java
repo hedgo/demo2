@@ -36,6 +36,9 @@ public class Stream2 {
                 .map(Objects::toString)
                 .collect(Collectors.joining(", "));
 
+        int[] resultInts = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).mapToInt(Integer::intValue).toArray();
+        System.out.println("resultInts = " + resultInts);
+
         System.out.println("sortedNumbers = " + output);
 //        numbersList.stream().forEach(System.out::print);
 //        numberList2.stream().forEach(System.out::print);
@@ -57,7 +60,7 @@ public class Stream2 {
         String output = input.chars().mapToObj(value -> (char) value)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
-                .map(characterLongEntry -> String.format("%s%s",characterLongEntry.getKey(),characterLongEntry.getValue()))
+                .map(characterLongEntry -> String.format("%s%s", characterLongEntry.getKey(), characterLongEntry.getValue()))
                 .collect(Collectors.joining());
 
         System.out.println("collect = " + output);
