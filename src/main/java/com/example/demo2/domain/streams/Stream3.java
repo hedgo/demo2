@@ -7,12 +7,15 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 //Moje testy
 public class Stream3 {
 
     public static void main(String[] args) {
-        test1();
+        test2();
     }
 
     private static void test1() {
@@ -29,5 +32,19 @@ public class Stream3 {
 //                .anyMatch(customer -> customer.getName().startsWith("R"));
                 .forEach(System.out::println);
 
+    }
+
+    public static void test2() { //generacja liczb
+        String result = Stream.iterate(0, n -> n + 2)
+                .limit(100)
+                .map(Objects::toString).collect(Collectors.joining(","));
+        System.out.println("result = " + result);
+
+        Stream.iterate(0, n -> n < 100, n -> n + 2) //w java9, z predicate, bez limit()
+                .map(Objects::toString).collect(Collectors.joining(","));;
+        System.out.println("result = " + result);
+
+        Stream.generate(Math::random).limit(10).forEach(System.out::println);
+//        IntStream.rangeClosed(1,100).forEach(System.out::println);
     }
 }

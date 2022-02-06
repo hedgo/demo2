@@ -36,13 +36,20 @@ public class Stream2 {
                 .map(Objects::toString)
                 .collect(Collectors.joining(", "));
 
-        int[] resultInts = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).mapToInt(Integer::intValue).toArray();
+        int[] resultInts = Arrays.stream(numbers)
+                .boxed()
+                .sorted(Comparator.reverseOrder())
+                .mapToInt(Integer::intValue)
+                .toArray();
         System.out.println("resultInts = " + resultInts);
 
         System.out.println("sortedNumbers = " + output);
 //        numbersList.stream().forEach(System.out::print);
 //        numberList2.stream().forEach(System.out::print);
 //        numbersStream.forEach(System.out::print);
+
+        IntSummaryStatistics intSummaryStatistics = Arrays.stream(numbers).summaryStatistics();
+        System.out.println("intSummaryStatistics = " + intSummaryStatistics);
 
     }
 

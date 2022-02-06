@@ -23,7 +23,12 @@ public class Lambda2 {
 
     /////////////////////////////////////////////////////////////////////////////////////////
     //T->R
+    Function<String, String>  dodajemyPostfix = s -> s.concat("a to dodajemy");
     Function<String, Integer> liczymyDlugoscStringa = s -> s.length();
+    Function<String, Integer> laczymyFunkcjeWPipeLine =
+            dodajemyPostfix   //Function PIPELINE
+            .andThen(liczymyDlugoscStringa)
+            .andThen(integer -> integer*200);
 
     //(T,U)->R
     BiFunction<String, Integer, Customer> funkcjaMaDwaWejscia = (s, integer) -> Customer.of(s, integer);

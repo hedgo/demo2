@@ -4,19 +4,17 @@ import com.example.demo2.domain.model.Customer;
 import com.example.demo2.domain.model.Employee;
 import org.springframework.util.comparator.Comparators;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Stream5 {
 
     public static void main(String[] args) {
-        test4();
+        test5();
     }
 
-    private static List<Customer> customerList = Arrays.asList(
+    public static List<Customer> customerList = Arrays.asList(
             Customer.of("Andrzej", 40),
             Customer.of("Bartek", 35),
             Customer.of("Wojtek", 55),
@@ -50,6 +48,43 @@ public class Stream5 {
         customerList.sort(Comparator.comparing(Customer::getName).reversed().thenComparing(Customer::getAge));
 
         customerList.forEach(System.out::println);
+
+    }
+
+    private static void test5() {
+        IntSummaryStatistics intSummaryStatistics = customerList.stream()
+                .mapToInt(Customer::getAge)
+//                .sum()
+//                .average()
+//                .max()
+//                .min()
+//                .count()
+                .summaryStatistics();
+
+        System.out.println("intSummaryStatistics = " + intSummaryStatistics);
+
+        int sumLat = customerList.stream()
+                .mapToInt(Customer::getAge)
+                .reduce(0, (left, right) -> left + right);
+        System.out.println("sumLat = " + sumLat);
+
+        OptionalInt sumLat2 = customerList.stream()
+                .mapToInt(Customer::getAge)
+                .reduce(Integer::sum);
+//                .reduce(Integer::max);
+//                .reduce(Integer::min);
+
+        System.out.println("sumLat2 = " + sumLat2.orElse(0));
+
+        //najlepsze, robimy mapToInt i jedziemy bezposrednio z funkcja np MAX
+        OptionalInt sumLat3 = customerList.stream()
+                .mapToInt(Customer::getAge)
+                .max();
+//                .count()
+//                .min()
+//                .sum();
+
+        System.out.println("sumLat3 = " + sumLat3.orElse(0));
 
     }
 
