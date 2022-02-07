@@ -14,9 +14,12 @@ public class Stream4 {
 
     static List<Customer> customerList = Arrays.asList(
             Customer.of("Andrzej", 40),
+            Customer.of("Andrzej", 11),
             Customer.of("Bartek", 35),
             Customer.of("Wojtek", 55),
+            Customer.of("Wojtek", 15),
             Customer.of("Mirek", 25),
+            Customer.of("Bob", 125),
             Customer.of("Bob", 25),
             Customer.of("Bolek", 35));
 
