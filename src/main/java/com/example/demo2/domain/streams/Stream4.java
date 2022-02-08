@@ -6,6 +6,7 @@ import com.example.demo2.domain.model.Employee;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,7 +25,7 @@ public class Stream4 {
             Customer.of("Bolek", 35));
 
     public static void main(String[] args) {
-        test3();
+        test4();
     }
 
     private static void test1() {
@@ -85,5 +86,16 @@ public class Stream4 {
                 .forEach(System.out::println);
         ;
     }
+
+    private static void test4() {
+        //super moge dac max/min bezposrednio na stream obiektow i w comparing wygrac jaka funkcja ma byc uzywana do porownan
+
+        Optional<Customer> maxAge = customerList.stream().max(Comparator.comparing(Customer::getAge));
+        System.out.println("maxAge = " + maxAge);
+
+        Optional<Customer> minAge = customerList.stream().min(Comparator.comparing(Customer::getAge));
+        System.out.println("minAge = " + minAge);
+    }
+
 
 }

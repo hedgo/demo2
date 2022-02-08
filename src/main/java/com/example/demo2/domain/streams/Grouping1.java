@@ -70,7 +70,8 @@ public class Grouping1 {
                             if (customer.getAge() <= 20) return Wiek.YOUNG;
                             else if (customer.getAge() <= 40) return Wiek.NORMAL;
                             else return Wiek.OLD;
-                        }, Collectors.mapping(Customer::getName, Collectors.toList()))));
+                        }, Collectors.mapping(Customer::getName, Collectors.toList())
+                        )));
         System.out.println("map7 = " + map7);
 
         //grupuje po nazwie i potem sumuje liczbe lat Customerow w obrebie grupy
