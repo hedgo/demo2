@@ -3,6 +3,7 @@ package com.example.demo2.domain.streams;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 //PS
@@ -42,6 +43,23 @@ public class Stream2 {
                 .mapToInt(Integer::intValue)
                 .toArray();
         System.out.println("resultInts = " + resultInts);
+
+        IntStream.of(numbers).boxed().sorted(Collections.reverseOrder());
+        IntStream.of(numbers).sorted().distinct().limit(3);//wezmie 3 unikalne najmniejsze wartosci liczbowe
+        IntStream.of(numbers).max().getAsInt();
+        IntStream.of(numbers).min().ifPresent(System.out::println);
+        IntStream.of(numbers).sum();
+        IntStream.of(numbers).count();
+        IntStream.of(numbers).average();
+        IntStream.of(numbers).summaryStatistics();
+
+        Arrays.stream(numbers).sorted();
+        Arrays.stream(numbers).max();
+        Arrays.stream(numbers).min();
+        Arrays.stream(numbers).sum();
+        Arrays.stream(numbers).count();
+        Arrays.stream(numbers).average();
+        Arrays.stream(numbers).summaryStatistics();
 
         System.out.println("sortedNumbers = " + output);
 //        numbersList.stream().forEach(System.out::print);

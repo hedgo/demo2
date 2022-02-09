@@ -30,7 +30,7 @@ public class Stream5 {
         test2(String::length);
 
         Function<Customer, Employee> function1 = customer -> Employee.of(customer.getName(), customer.getAge(), null, null);
-        customerList.stream().map(function1).collect(Collectors.toList()).forEach(System.out::println);
+        customerList.stream().map(function1).collect(Collectors.toUnmodifiableList()).forEach(System.out::println);
 
     }
 

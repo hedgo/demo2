@@ -1,0 +1,10 @@
+https://www.youtube.com/watch?v=nJ55-GQqJnQ
+
+1. klasy record - super dla struktur
+2. znacznik sealed - ogranicza kto moze po mnie dziedziczyc/implementowac
+3. vars - nie trzeba jawnie podawac typu zmiennej
+4. """   formatuje tekst tak jest jest w intelliJ - bez potrszeby tysiecy \n\t""+
+5. inicjowanie klolekcji (immutable tylko) przez List.of, Set.of, Map.of, Map.ofEntries(Map.entry(k1,v1),Map.entry(k1,v1))
+6. Lepsze NullPointerException np jak w 1 linijce mam potencjalnie 2 (lub wiecej) obiekty ktore mogly byc null to na stack trace bedzie juz precyzyjna podpowiedz ktory z nich wygenerowal NPE
+7. lepsze/nowe switch
+8. instance of - mozna podac nazwe zmiennej na koncu i wtedy ona jest juz zrzutowana i mozna korzystac
