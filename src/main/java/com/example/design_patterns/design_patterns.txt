@@ -1,0 +1,6 @@
+1. Obserwator
+Troche jakbym prenumerował gazetę.
+Definiuje relacje 1:N.
+Kiedy stan obiektu obserwowanego się zmienia to wtedy wszystkie obiekty obserwujące się o tym dowiadują.
+
+
