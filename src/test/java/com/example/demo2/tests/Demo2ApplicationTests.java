@@ -25,13 +25,13 @@ class Demo2ApplicationTests {
 
     @Test
     void contextLoads() {
-        List<Skill> skillList = employeeList.stream()
+        Set<Skill> skillList = employeeList.stream()
                 .filter(employee -> employee.getAge() > 25)
                 .sorted(Comparator.comparing(Employee::getSalary).reversed())
                 .map(Employee::getSkills)
                 .flatMap(Collection::stream)
 //                .flatMap(skills -> skills.stream())     //to co robie to stream z elementu ktory jest aktualnie procesowany
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
 
         System.out.println("skillList = " + skillList);
     }

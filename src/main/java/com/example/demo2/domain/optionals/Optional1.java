@@ -11,5 +11,7 @@ public class Optional1 {
         Stream5.customerList.stream()
                 .findAny()
                 .ifPresent(customer -> System.out.println(String.format("Znalazlem %s", customer)));
+
+        Stream5.customerList.forEach(System.out::println);
     }
 }
